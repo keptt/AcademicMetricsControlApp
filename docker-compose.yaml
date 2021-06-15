@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+    bsue-redis:
+        container_name: redis
+        image: redis
+        tty: true
+    bsue-front:
+        container_name: front
+        ports:
+            - 3000:3000
+        build:
+            context: ./front
+        tty: true
+        # restart: always
+    bsue-back:
+        container_name: back
+        ports:
+            - 3001:8000
+        build:
+            context: ./back
+        tty: true
+        # restart: always
